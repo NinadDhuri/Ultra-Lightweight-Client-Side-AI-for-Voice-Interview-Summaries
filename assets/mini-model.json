@@ -1,0 +1,30 @@
+{
+  "name": "ultra-lite-scribe",
+  "sizeKB": 12,
+  "summary": {
+    "keywords": {
+      "impact": 2.3,
+      "team": 1.8,
+      "customers": 2.1,
+      "growth": 2.4,
+      "timeline": 1.6,
+      "risk": 2.5,
+      "metric": 2.2,
+      "hiring": 1.5,
+      "budget": 1.7,
+      "prototype": 1.9
+    },
+    "decay": 0.92
+  },
+  "fillers": {
+    "templates": [
+      "While we're thinking, let's keep {topic} in mind as the anchor.",
+      "To bridge the gap, maybe expand a bit more on {topic}.",
+      "Let me make sure we're aligned on {topic} before moving on.",
+      "We can circle back to {topic}; could you add a detail there?",
+      "I'm hearing {topic} as a theme—feel free to elaborate."
+    ],
+    "pauseMs": 3200,
+    "voiceHint": "en-US"
+  }
+}

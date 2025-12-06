@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultra-Light Voice Interview Summaries</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Client-side • Offline-ready • &lt;30MB model</p>
+      <h1>Real-time filler generation &amp; voice interview summaries</h1>
+      <p class="lede">Drop in utterances, watch the live summary evolve, and hear contextual fillers when pauses are detected.</p>
+      <div class="cta-row">
+        <button id="loadModelBtn" class="primary">Load Mini Model</button>
+        <button id="resetBtn" class="ghost">Reset Demo</button>
+      </div>
+      <div id="status" class="status">Model not loaded</div>
+    </div>
+    <div class="pillars">
+      <div class="metric-card">
+        <p class="label">Model Size</p>
+        <p class="value" id="modelSize">–</p>
+      </div>
+      <div class="metric-card">
+        <p class="label">Load Time</p>
+        <p class="value" id="loadTime">–</p>
+      </div>
+      <div class="metric-card">
+        <p class="label">Last Response</p>
+        <p class="value" id="responseTime">–</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="panel-header">
+        <div>
+          <p class="label">Conversation</p>
+          <h2>Live Transcript</h2>
+        </div>
+        <div class="bubble">Latency target: &lt;50ms</div>
+      </div>
+      <div class="input-row">
+        <textarea id="utteranceInput" placeholder="Type a new utterance..." rows="3"></textarea>
+        <button id="addUtteranceBtn" class="primary">Add Utterance</button>
+      </div>
+      <div id="transcript" class="transcript"></div>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="label">Summaries</p>
+            <h2>Rolling Summary</h2>
+          </div>
+          <div class="bubble secondary">Fully client-side</div>
+        </div>
+        <div id="summary" class="summary">Load the model to start summarizing.</div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="label">Filler Generator</p>
+            <h2>Pauses &amp; TTS</h2>
+          </div>
+          <div class="bubble secondary">Offline speech synthesis</div>
+        </div>
+        <div class="filler">
+          <p class="note">When no new text is added for a few seconds, the demo injects a contextual filler phrase and plays it with the browser's Speech Synthesis API.</p>
+          <div class="filler-row">
+            <span class="label">Last filler</span>
+            <div id="fillerText" class="filler-text">–</div>
+          </div>
+          <div class="filler-row">
+            <span class="label">Pause detector</span>
+            <div id="pauseState" class="pill">Waiting...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>All processing happens in your browser using a miniature (~12KB) heuristic model encoded as JSON. No servers, no tracking.</p>
+  </footer>
+
+  <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
